@@ -13,6 +13,6 @@ class Destination extends Model
 
    public function vehicles()
    {
-      return $this->belongsToMany(Vehicle::class, 'price', 'vehicle_id', 'destination_id')->withPivot('price', 'duration');
+      return $this->belongsToMany(Vehicle::class, 'prices', 'vehicle_id', 'destination_id')->withPivot('price', 'duration');
    }
 }
