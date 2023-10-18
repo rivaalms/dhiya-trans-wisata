@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AppController::class, 'landing'])->name('landing');
 Route::get('/about', fn () => Inertia::render('about'));
+Route::get('/contacts', fn () => Inertia::render('contacts'));
