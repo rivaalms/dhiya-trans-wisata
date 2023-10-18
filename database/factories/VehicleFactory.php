@@ -22,7 +22,8 @@ class VehicleFactory extends Factory
       $slug = $controller->generateSlug($name);
       $capacity = fake()->randomNumber(2);
       $image = fake()->imageUrl(720, 480);
+      $price = fake()->numberBetween(50000, 1000000);
 
-      return compact('name', 'slug', 'capacity', 'image');
+      return compact('name', 'slug', 'capacity', 'image', 'price');
    }
 }
