@@ -14,6 +14,20 @@
 
    <div class="container mx-auto">
       <div class="py-40 grid grid-cols-2">
+         <div class="col-start-2 grid gap-4">
+            <div class="">
+               <p class="text-gray-500 text-lg font-bold">Alamat</p>
+               <p class="text-xl tracking-wide">{{ company.address }}</p>
+            </div>
+            <div class="">
+               <p class="text-gray-500 text-lg font-bold">Email</p>
+               <p class="text-xl tracking-wide">{{ company.email }}</p>
+            </div>
+            <div class="">
+               <p class="text-gray-500 text-lg font-bold">Telepon</p>
+               <p class="text-xl tracking-wide">{{ company.phone }}</p>
+            </div>
+         </div>
       </div>
    </div>
 </default-layout>
