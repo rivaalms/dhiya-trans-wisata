@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', fn() => Inertia::render('landing'))->name('landing');
 Route::get('/', [AppController::class, 'landing'])->name('landing');
+Route::get('/about', fn () => Inertia::render('about'));
