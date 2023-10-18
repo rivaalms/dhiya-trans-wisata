@@ -1,8 +1,8 @@
 <template>
 <default-layout>
    <Head title="Landing"/>
-   <Header></Header>
    <Hero
+      height-class="h-[calc((100vh-92px)*33%)]"
       md-height-class="h-[650px]"
       bg-class="bg-[url('/img/pangalengan-2.jpg')]"
    >
@@ -15,16 +15,53 @@
          </Link>
       </div>
    </Hero>
+
+   <div class="container mx-auto">
+      <div class="grid grid-cols-1 gap-12 py-[10rem]">
+         <p class="font-bold uppercase text-4xl text-center">
+            Produk Kami
+         </p>
+         <div class="grid grid-cols-3 gap-8 w-5/6 mx-auto">
+            <template v-for="item in props.products">
+               <div class="card p-0">
+                  <div class="aspect-[4/3] border-b">
+                     <img :src="item.image" alt="" class="object-cover h-full w-auto">
+                  </div>
+                  <div class="p-6">
+                     <p class="text-xl text-center font-semibold">
+                        {{ item.name }}
+                     </p>
+                     <div class="flex justify-center pt-6 items-center">
+                        <button class="bg-amber-500 px-4 py-2 rounded-full text-white hover:bg-amber-600 active:ring-2 active:ring-offset-2 active:ring-amber-300 transition-colors">
+                           Lihat Detail
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </template>
+         </div>
+         <div class="pt-12 flex justify-center">
+            <Link href="/products" class="bg-amber-500 px-4 py-2 rounded-full text-white hover:bg-amber-600 active:ring-2 active:ring-offset-2 active:ring-amber-300 transition-colors">
+               Lihat Selengkapnya
+            </Link>
+         </div>
+      </div>
+   </div>
+
 </default-layout>
 </template>
 
 <script setup>
 import { Head } from '@inertiajs/vue3'
-import Header from '../components/header.vue'
 import Hero from '../components/hero.vue'
 import DefaultLayout from '../layouts/default.vue'
-import { computed } from 'vue'
-import { Link, usePage } from '@inertiajs/vue3'
+import { Link } from '@inertiajs/vue3'
 
-const company = computed(() => usePage().props.company)
+const props = defineProps({
+   products: {
+      type: Array,
+      required: true,
+      default: []
+   }
+})
 </script>
