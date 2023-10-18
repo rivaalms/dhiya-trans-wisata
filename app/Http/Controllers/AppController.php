@@ -19,4 +19,10 @@ class AppController extends Controller
 
       return Inertia::render('landing', compact('products'));
    }
+
+   public function products()
+   {
+      $products = Vehicle::mapVehicles(Vehicle::all());
+      return Inertia::render('products', compact('products'));
+   }
 }

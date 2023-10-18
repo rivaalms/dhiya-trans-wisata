@@ -1,4 +1,4 @@
- <template>
+<template>
 <Head title="Tentang"/>
 <default-layout>
    <Hero
