@@ -29,7 +29,7 @@ class Vehicle extends Model
          'updated_at' => $item->updated_at,
          'price_by_destination' => $item->destinations->map(fn ($destination) => [
             'destination' => $destination->name,
-            'days' => $destination->days,
+            'days' => $destination->pivot->duration,
             'price' => $destination->pivot->price,
          ]),
       ]);

@@ -25,4 +25,12 @@ class AppController extends Controller
       $products = Vehicle::mapVehicles(Vehicle::all());
       return Inertia::render('products', compact('products'));
    }
+
+   public function productDetails(String $slug)
+   {
+      $query = Vehicle::where('slug', $slug)->get();
+      $product = Vehicle::mapVehicles($query)->first();
+
+      return Inertia::render('vehicle', compact('product'));
+   }
 }
