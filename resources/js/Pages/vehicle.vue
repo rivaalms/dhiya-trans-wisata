@@ -29,6 +29,32 @@
             </p>
          </div>
 
+         <div class="w-2/3 mx-auto relative overflow-hidden">
+            <div class="relative overflow-auto">
+               <div class="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto">
+                  <div class="snap-center aspect-[1.25/1] shrink-0">
+                  </div>
+                  <div class="snap-center aspect-[1.25/1] shrink-0">
+                     <img class="shrink-0 w-auto h-60 object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
+                  </div>
+                  <div class="snap-center aspect-[1.25/1] shrink-0">
+                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
+                  </div>
+                  <div class="snap-center aspect-[1.25/1] shrink-0">
+                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
+                  </div>
+                  <div class="snap-center aspect-[1.25/1] shrink-0">
+                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
+                  </div>
+                  <div class="snap-center aspect-[1.25/1] shrink-0">
+                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
+                  </div>
+                  <div class="snap-center aspect-[1.25/1] shrink-0">
+                  </div>
+               </div>
+            </div>
+         </div>
+
          <div class="w-2/3 mx-auto">
             <div class="relative overflow-x-auto mb-12">
                <table class="w-full text-gray-600 text-left">
@@ -43,16 +69,33 @@
                      <tr class="border-b text-gray-900">
                         <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">Bandung (dalam kota)</th>
                         <td class="px-6 py-4">1 hari</td>
-                        <td class="px-6 py-4">{{ product.price }}</td>
+                        <td class="px-6 py-4">{{ useFormatCurrency(product.price) }}</td>
                      </tr>
 
                      <tr v-for="item in product?.price_by_destination" :key="item.destination" class="border-b text-gray-900">
                         <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">{{ item.destination }}</th>
                         <td class="px-6 py-4">{{ item.days }} hari</td>
-                        <td class="px-6 py-4">{{ item.price }}</td>
+                        <td class="px-6 py-4">{{ useFormatCurrency(item.price) }}</td>
                      </tr>
                   </tbody>
                </table>
+            </div>
+
+            <div class="">
+               <p class="text-lg md:text-xl mb-4 font-semibold">
+                  Catatan
+               </p>
+               <ul class="list-disc ps-8 text-lg">
+                  <li class="mb-2">
+                     <span class="font-semibold">Harga termasuk:</span> BBM, jasa driver.
+                  </li>
+                  <li class="mb-2">
+                     <span class="font-semibold">Harga tidak termasuk:</span> biaya tol, biaya parkir, tip dan konsumsi driver, tiket masuk lokasi wisata, biaya penyeberangan.
+                  </li>
+                  <li class="mb-2">
+                     Untuk penggunaan ke luar kota yang lebih dari 3 hari pengunaan, pengemudi yang bertugas adalah 2 orang demi keselamatan dan kenyamanan Anda dan rombongan.
+                  </li>
+               </ul>
             </div>
          </div>
       </div>
@@ -65,6 +108,7 @@ import Hero from '@/components/hero.vue'
 import DefaultLayout from '@/layouts/default.vue'
 import { computed } from 'vue'
 import { Head, usePage } from '@inertiajs/vue3'
+import { useFormatCurrency } from '@/helpers'
 const props = defineProps({
    product: Array
 })
