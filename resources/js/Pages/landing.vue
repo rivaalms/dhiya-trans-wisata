@@ -17,29 +17,27 @@
    </Hero>
 
    <div class="container mx-auto">
-      <div class="grid grid-cols-1 gap-12 py-[10rem]">
+      <div class="grid grid-cols-1 gap-12 py-40">
          <p class="font-bold uppercase text-4xl text-center">
             Produk Kami
          </p>
-         <div class="grid grid-cols-3 gap-8 w-5/6 mx-auto">
+         <div class="grid grid-cols-3 gap-6 place-content end w-2/3 mx-auto">
             <template v-for="item in props.products">
-               <div class="card p-0">
-                  <div class="aspect-[4/3] border-b">
-                     <img :src="item.image" alt="" class="object-cover h-full w-auto">
-                  </div>
-                  <div class="p-6">
-                     <p class="text-xl text-center font-semibold">
-                        {{ item.name }}
-                     </p>
-                     <div class="flex justify-center pt-6 items-center">
-                        <button class="bg-amber-500 px-4 py-2 rounded-full text-white hover:bg-amber-600 active:ring-2 active:ring-offset-2 active:ring-amber-300 transition-colors">
-                           Lihat Detail
-                        </button>
+               <Link :href="`/products/${item.slug}`">
+                  <div class="card p-0 hover:shadow-xl hover:text-amber-500 hover:cursor-pointer transition-all">
+                     <div class="aspect-[1.25/1] border-b">
+                        <img :src="item.image" alt="" class="object-cover h-full w-auto rounded-t-[0.425rem]">
+                     </div>
+                     <div class="p-6">
+                        <p class="text-center text-lg font-semibold">
+                           {{ item.name }}
+                        </p>
                      </div>
                   </div>
-               </div>
+               </Link>
             </template>
          </div>
+
          <div class="pt-12 flex justify-center">
             <Link href="/products" class="bg-amber-500 px-4 py-2 rounded-full text-white hover:bg-amber-600 active:ring-2 active:ring-offset-2 active:ring-amber-300 transition-colors">
                Lihat Selengkapnya
