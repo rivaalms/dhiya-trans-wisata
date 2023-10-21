@@ -14,7 +14,10 @@
 
    <div class="container mx-auto">
       <div class="py-40 grid grid-cols-2">
-         <div class="col-start-2 grid gap-4">
+         <div class="flex items-center justify-center">
+            <img src="/img/contact.png" class="h-96 w-auto" alt="">
+         </div>
+         <div class="col-start-2 grid gap-4 place-content-start">
             <div class="">
                <p class="text-gray-500 text-lg font-bold">Alamat</p>
                <p class="text-xl tracking-wide">{{ company.address }}</p>
