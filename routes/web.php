@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\AppController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,8 @@ Route::get('/about', fn () => Inertia::render('about'));
 Route::get('/contacts', fn () => Inertia::render('contacts'));
 Route::get('/products', [AppController::class, 'products']);
 Route::get('/products/{slug}', [AppController::class, 'productDetails']);
+
+Route::prefix('admin')->group(function() {
+   Route::get('/login', [AdminController::class, 'login']);
+   Route::post('/login-handle', [UserController::class, 'login']);
+});
