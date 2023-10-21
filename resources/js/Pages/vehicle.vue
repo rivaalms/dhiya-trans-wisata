@@ -31,26 +31,12 @@
 
          <div class="w-2/3 mx-auto relative overflow-hidden">
             <div class="relative overflow-auto">
-               <div class="relative w-full flex gap-6 snap-x snap-mandatory overflow-x-auto">
-                  <div class="snap-center aspect-[1.25/1] shrink-0">
-                  </div>
-                  <div class="snap-center aspect-[1.25/1] shrink-0">
-                     <img class="shrink-0 w-auto h-60 object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
-                  </div>
-                  <div class="snap-center aspect-[1.25/1] shrink-0">
-                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
-                  </div>
-                  <div class="snap-center aspect-[1.25/1] shrink-0">
-                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
-                  </div>
-                  <div class="snap-center aspect-[1.25/1] shrink-0">
-                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
-                  </div>
-                  <div class="snap-center aspect-[1.25/1] shrink-0">
-                     <img class="shrink-0 h-60 w-auto object-cover rounded-lg shadow-xl bg-white" src="/img/tayo-1.jpg">
-                  </div>
-                  <div class="snap-center aspect-[1.25/1] shrink-0">
-                  </div>
+               <div class="relative w-full flex gap-6 py-8 snap-x snap-mandatory overflow-x-auto">
+                  <template v-for="image in product.images">
+                     <div class="snap-center aspect-[1.25/1] shrink-0">
+                        <img class="shrink-0 w-auto h-60 object-cover rounded-lg shadow hover:shadow-xl bg-white transition-all" :src="image.path">
+                     </div>
+                  </template>
                </div>
             </div>
          </div>
