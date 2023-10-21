@@ -23,7 +23,10 @@ class AppController extends Controller
 
    public function products()
    {
-      $products = Vehicle::mapVehicles(Vehicle::all());
+      $products = Vehicle::all();
+      foreach ($products as $p) {
+         $p->image = Image::where('vehicle_uuid', $p->uuid)->first();
+      }
       return Inertia::render('products', compact('products'));
    }
 

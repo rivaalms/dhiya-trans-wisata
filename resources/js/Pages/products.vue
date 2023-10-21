@@ -19,7 +19,7 @@
                <Link :href="`/products/${item.slug}`">
                   <div class="card p-0 hover:shadow-xl hover:text-amber-500 hover:cursor-pointer transition-all">
                      <div class="aspect-[1.25/1] border-b">
-                        <img :src="item.image" alt="" class="object-cover h-full w-auto rounded-t-[0.425rem]">
+                        <img :src="item.image.path" alt="" class="object-cover h-full w-auto rounded-t-[0.425rem]">
                      </div>
                      <div class="p-6">
                         <p class="text-center text-lg font-semibold">
