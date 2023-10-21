@@ -24,6 +24,10 @@ Route::get('/products', [AppController::class, 'products']);
 Route::get('/products/{slug}', [AppController::class, 'productDetails']);
 
 Route::prefix('admin')->group(function() {
-   Route::get('/login', [AdminController::class, 'login']);
+   Route::get('/login', [AdminController::class, 'login'])->name('login');
    Route::post('/login-handle', [UserController::class, 'login']);
+
+   Route::middleware('auth')->group(function() {
+      Route::get('/dashboard', [AdminController::class, 'dashboard']);
+   });
 });

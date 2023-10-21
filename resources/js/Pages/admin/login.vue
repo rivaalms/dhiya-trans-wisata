@@ -13,9 +13,9 @@
                id="email"
                type="email"
                class="w-full mt-1 p-2 rounded border px-3"
-               :class="[error.email ? 'border-red-500' : '']"
+               :class="[errors.email ? 'border-red-500' : '']"
             />
-            <p v-if="error.email" class="text-red-500 text-sm">{{ error.email }}</p>
+            <p v-if="errors.email" class="text-red-500 text-sm">{{ errors.email }}</p>
          </div>
          <div class="mb-4">
             <label for="password" class="block text-gray-600 text-sm"
@@ -26,9 +26,9 @@
                id="password"
                type="password"
                class="w-full mt-1 p-2 rounded border px-3"
-               :class="[error.password ? 'border-red-500' : '']"
+               :class="[errors.password ? 'border-red-500' : '']"
             />
-            <p v-if="error.password" class="text-red-500 text-sm">{{ error.password }}</p>
+            <p v-if="errors.password" class="text-red-500 text-sm">{{ errors.password }}</p>
          </div>
          <button
             type="submit"
@@ -51,41 +51,26 @@ const form = useForm({
 })
 const password = ref('')
 
-const error = ref({
-   email: null,
-   password: null
+defineProps({
+   errors: Object
 })
 
 const login = async () => {
-   error.value = {
-      email: null,
-      password: null
-   }
-
-   await new Promise(async (resolve) => {
-      await validate()
-      resolve()
-   })
-   if (error.value.email && error.value.password) {
-      return
-   }
-   else {
-      form.password = btoa(password.value)
-      form.post('/admin/login-handle')
-   }
+   form.password = btoa(password.value)
+   form.post('/admin/login-handle')
 }
 
-const validate = async () => {
-   await new Promise(resolve => {
-      if (!form.data().email || form.data().email.length < 1) error.value.email = 'Email harus diisi'
-      if (form.data().email && !isEmailValid(form.data().email)) error.value.email = 'Email tidak valid'
-      if (!password.value || password.value.length < 1) error.value.password = 'Kata sandi harus diisi'
-      resolve()
-   })
-}
+// const validate = async () => {
+//    await new Promise(resolve => {
+//       if (!form.data().email || form.data().email.length < 1) error.value.email = 'Email harus diisi'
+//       if (form.data().email && !isEmailValid(form.data().email)) error.value.email = 'Email tidak valid'
+//       if (!password.value || password.value.length < 1) error.value.password = 'Kata sandi harus diisi'
+//       resolve()
+//    })
+// }
 
-const isEmailValid = (email) => {
-   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-   return emailRegex.test(email)
-}
+// const isEmailValid = (email) => {
+//    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+//    return emailRegex.test(email)
+// }
 </script>
