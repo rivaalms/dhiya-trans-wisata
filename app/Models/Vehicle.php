@@ -10,21 +10,28 @@ class Vehicle extends Model
    use HasFactory;
 
    protected $guarded = ['id'];
+   protected $hidden = ['id'];
 
    public function destinations()
    {
-      return $this->belongsToMany(Destination::class, 'prices', 'destination_id', 'vehicle_id')->withPivot('price', 'duration');
+      return $this->belongsToMany(Destination::class, 'prices', 'vehicle_uuid', 'destination_uuid', 'uuid', 'uuid')->withPivot('price', 'duration');
+   }
+
+   public function images() {
+      return $this->hasMany(Image::class, 'vehicle_uuid', 'uuid');
    }
 
    public static function mapVehicles($data)
    {
+      $images = Image::where('vehicle_uuid', $data->first()->uuid)->get()->setHidden(['vehicle_uuid', 'id']);
+
       $result = $data->map(fn ($item) => [
-         'id' => $item->id,
+         'uuid' => $item->uuid,
          'name' => $item->name,
          'slug' => $item->slug,
          'capacity' => $item->capacity,
          'price' => $item->price,
-         'image' => $item->image,
+         'images' => $images,
          'created_at' => $item->created_at,
          'updated_at' => $item->updated_at,
          'price_by_destination' => $item->destinations->map(fn ($destination) => [

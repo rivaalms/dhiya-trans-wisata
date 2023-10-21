@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
+use App\Models\Image;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
+use App\Http\Controllers\Controller;
 
 class AppController extends Controller
 {
@@ -14,7 +15,7 @@ class AppController extends Controller
       $products = Vehicle::all()->take(3);
 
       foreach ($products as $p) {
-         $p->destinations;
+         $p->image = Image::where('vehicle_uuid', $p->uuid)->first()?->path;
       }
 
       return Inertia::render('landing', compact('products'));

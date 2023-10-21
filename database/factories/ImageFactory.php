@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Price>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Image>
  */
-class PriceFactory extends Factory
+class ImageFactory extends Factory
 {
    /**
     * Define the model's default state.
@@ -18,10 +18,7 @@ class PriceFactory extends Factory
    {
       $uuid = fake()->uuid();
       // $vehicle_id = fake()->numberBetween(1, 10);
-      // $destination_id = fake()->numberBetween(1, 10);
-      $duration = fake()->numberBetween(1, 7);
-      $price = fake()->numberBetween(100000, 1000000);
-
-      return compact('uuid', 'duration', 'price');
+      $path = fake()->imageUrl();
+      return compact('uuid', 'path');
    }
 }

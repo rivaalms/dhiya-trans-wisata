@@ -18,12 +18,12 @@ class VehicleFactory extends Factory
    public function definition(): array
    {
       $controller = new Controller;
+      $uuid = fake()->uuid();
       $name = fake()->words(3, true);
       $slug = $controller->generateSlug($name);
       $capacity = fake()->randomNumber(2);
-      $image = fake()->imageUrl(720, 480);
       $price = fake()->numberBetween(50000, 1000000);
 
-      return compact('name', 'slug', 'capacity', 'image', 'price');
+      return compact('uuid', 'name', 'slug', 'capacity', 'price');
    }
 }

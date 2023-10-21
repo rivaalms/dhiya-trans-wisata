@@ -18,9 +18,10 @@ class DestinationFactory extends Factory
    public function definition(): array
    {
       $controller = new Controller;
+      $uuid = fake()->uuid();
       $name = fake()->city();
       $slug = $controller->generateSlug($name);
 
-      return compact('name', 'slug');
+      return compact('uuid', 'name', 'slug');
    }
 }
