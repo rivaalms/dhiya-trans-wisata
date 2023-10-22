@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::/* middleware('auth')-> */prefix('admin')->group(function() {
+   Route::get('/products', [ApiController::class, 'getProducts']);
+   Route::get('/destinations', [ApiController::class, 'getDestinations']);
+   Route::get('/prices', [ApiController::class, 'getPrices']);
 });

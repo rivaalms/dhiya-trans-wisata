@@ -29,5 +29,8 @@ Route::prefix('admin')->group(function() {
 
    Route::middleware('auth')->group(function() {
       Route::get('/dashboard', [AdminController::class, 'dashboard']);
+      Route::get('/products', [AdminController::class, 'products']);
+      Route::get('/destinations', [AdminController::class, 'destinations']);
+      Route::get('/prices', [AdminController::class, 'prices']);
    });
 });
