@@ -3,11 +3,12 @@
 
 <default-layout>
    <Hero
-      height-class="h-[calc((100vh-92px)*33%)]"
+      height-class="h-[calc((100vh-72px)*0.35)]"
       md-height-class="h-[650px]"
-      bg-class="bg-[url('/img/pangalengan-2.jpg')]"
+      bg-class="bg-gray-50"
+      hide-overlay
    >
-      <p class="uppercase text-gray-200 tracking-wide font-semibold text-3xl md:text-6xl">
+      <p class="font-serif uppercase text-gray-800 tracking-wide font-semibold text-3xl md:text-5xl">
          {{ product.name }}
       </p>
    </Hero>
@@ -31,10 +32,10 @@
 
          <div class="w-2/3 mx-auto relative overflow-hidden">
             <div class="relative overflow-auto">
-               <div class="relative w-full flex gap-6 py-8 snap-x snap-mandatory overflow-x-auto">
+               <div class="relative w-full flex gap-6 p-8 snap-x snap-mandatory overflow-x-auto">
                   <template v-for="image in product.images">
-                     <div class="snap-center aspect-[1.25/1] shrink-0">
-                        <img class="shrink-0 w-auto h-60 object-cover rounded-lg shadow hover:shadow-xl bg-white transition-all" :src="image.path">
+                     <div class="snap-center h-48 w-64 shrink-0">
+                        <img class="shrink-0 h-full w-full object-cover rounded-lg shadow hover:shadow-md bg-white transition-all" :src="image.path">
                      </div>
                   </template>
                </div>
@@ -42,6 +43,29 @@
          </div>
 
          <div class="w-2/3 mx-auto">
+            <h2 class="font-serif font-bold text-2xl pb-6 text-center">
+               Detail Produk
+            </h2>
+            <div class="relative overflow-x-auto">
+               <table class="w-full text-gray-600 text-left">
+                  <tbody>
+                     <tr class="border-b">
+                        <td scope="row" class="px-6 py-4 font-semibold whitespace-nowrap">Nama Produk</td>
+                        <td class="px-6 py-4 text-gray-900">{{ product.name }}</td>
+                     </tr>
+                     <tr class="border-b">
+                        <td scope="row" class="px-6 py-4 font-semibold whitespace-nowrap">Kapasitas</td>
+                        <td class="px-6 py-4 text-gray-900">{{ product.capacity }} seats</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+
+         <div class="w-2/3 mx-auto">
+            <h2 class="font-serif font-bold text-2xl pb-6 text-center">
+               Price List
+            </h2>
             <div class="relative overflow-x-auto mb-12">
                <table class="w-full text-gray-600 text-left">
                   <thead class="text-sm uppercase">
@@ -68,7 +92,7 @@
             </div>
 
             <div class="">
-               <p class="text-lg md:text-xl mb-4 font-semibold">
+               <p class="font-serif font-bold text-2xl pb-6 text-center">
                   Catatan
                </p>
                <ul class="list-disc ps-8 text-lg">

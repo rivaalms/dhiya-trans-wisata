@@ -11,6 +11,7 @@ export default {
    theme: {
       extend: {
          fontFamily: {
+            serif: ['Montagu Slab', ...defaultTheme.fontFamily.serif],
             sans: ['Figtree', ...defaultTheme.fontFamily.sans],
          },
       },

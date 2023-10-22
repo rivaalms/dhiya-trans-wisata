@@ -2,7 +2,7 @@
 <header>
    <div class="shadow">
       <div class="container mx-auto">
-         <div class="flex justify-around items-center py-4 text-lg">
+         <div class="flex justify-around items-center py-2">
             <div class="flex gap-8 uppercase">
                <Link
                   href="/"
@@ -23,7 +23,7 @@
 
             <Link
                href="/"
-               class="text-2xl font-semibold uppercase hover:underline hover:decoration-2 hover:decoration-amber-500"
+               class="font-serif text-2xl font-semibold uppercase hover:underline hover:decoration-2 hover:decoration-amber-500 hover:underline-offset-2"
             >
                {{ company.name }}
             </Link>
