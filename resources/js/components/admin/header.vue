@@ -12,11 +12,40 @@
                </p>
             </div>
             <div class="flex gap-4">
-               <Link href="/admin/dashboard" class="py-2 px-2 hover:text-amber-500 transition-all">Dashboard</Link>
-               <Link href="/admin/products" class="py-2 px-2 hover:text-amber-500 transition-all">Produk</Link>
-               <Link href="/admin/destinations" class="py-2 px-2 hover:text-amber-500 transition-all">Destinasi</Link>
-               <Link href="/admin/prices" class="py-2 px-2 hover:text-amber-500 transition-all">Harga</Link>
-               <Link href="#" class="py-2 px-2 hover:text-amber-500 transition-all">Gambar</Link>
+               <Link
+                  href="/admin/dashboard"
+                  class="py-2 px-2 hover:text-blue-500 transition-all"
+                  :class="$page.component === 'admin/dashboard' ? activeClass : ''"
+               >
+                  Dashboard
+               </Link>
+               <Link
+                  href="/admin/products"
+                  class="py-2 px-2 hover:text-blue-500 transition-all"
+                  :class="$page.component === 'admin/products' ? activeClass : ''"
+               >
+                  Produk
+               </Link>
+               <Link
+                  href="/admin/destinations"
+                  class="py-2 px-2 hover:text-blue-500 transition-all"
+                  :class="$page.component === 'admin/destinations' ? activeClass : ''"
+               >
+                  Destinasi
+               </Link>
+               <Link
+                  href="/admin/prices"
+                  class="py-2 px-2 hover:text-blue-500 transition-all"
+                  :class="$page.component === 'admin/prices' ? activeClass : ''"
+               >
+                  Harga
+               </Link>
+               <Link
+                  href="#"
+                  class="py-2 px-2 hover:text-blue-500 transition-all"
+               >
+                  Gambar
+               </Link>
             </div>
          </div>
       </div>
@@ -29,4 +58,8 @@ import { computed } from 'vue'
 import { usePage, Link } from '@inertiajs/vue3'
 
 const company = computed(() => usePage().props.company)
+const activeClass = computed(() => [
+   'text-blue-500',
+   'font-medium'
+])
 </script>

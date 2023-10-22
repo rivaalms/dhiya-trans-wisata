@@ -2,17 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Price;
 use App\Models\Vehicle;
 use App\Models\Destination;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
 {
    public function getProducts(Request $request) {
-      $data = Vehicle::paginate(10)->withQueryString();
-      $data->setHidden(['id', 'uuid']);
+      $data = Vehicle::latest()->paginate(10)->withQueryString();
+      $data->setHidden(['id']);
       return $this->apiResponse($data);
+   }
+
+   public function postProducts(Request $request) {
+      $validator = Validator::make($request->all(), [
+         'name' => 'required',
+         'slug' => 'required',
+         'capacity' => 'required',
+         'price' => 'required'
+      ]);
+
+      if ($validator->fails()) return redirect('/admin/products')->withErrors($validator)->withInput();
+
+      $data = $validator->validated();
+      $data['uuid'] = Str::uuid()->toString();
+      $product = Vehicle::create($data);
+
+      return redirect()->back()->with([
+         'data' => $product->setHidden(['uuid', 'id'])
+      ]);
+   }
+
+   public function putProducts(Request $request, $uuid) {
+      $validator = Validator::make($request->all(), [
+         'name' => 'required',
+         'slug' => 'required',
+         'capacity' => 'required',
+         'price' => 'required'
+      ]);
+
+      if ($validator->fails()) return redirect('/admin/products')->withErrors($validator)->withInput();
+
+      $data = $validator->validated();
+      Vehicle::where('uuid', $uuid)->update($data);
+
+      return back(303);
+   }
+
+   public function deleteProducts($uuid) {
+      Vehicle::where('uuid', $uuid)->delete();
+      Image::where('vehicle_uuid', $uuid)->delete();
+      Price::where('vehicle_uuid', $uuid)->delete();
+
+      return back(303);
    }
 
    public function getDestinations(Request $request) {

@@ -19,4 +19,8 @@ Route::/* middleware('auth')-> */prefix('admin')->group(function() {
    Route::get('/products', [ApiController::class, 'getProducts']);
    Route::get('/destinations', [ApiController::class, 'getDestinations']);
    Route::get('/prices', [ApiController::class, 'getPrices']);
+
+   Route::post('/products', [ApiController::class, 'postProducts']);
+   Route::put('/products/{uuid}', [ApiController::class, 'putProducts']);
+   Route::delete('/products/{uuid}', [ApiController::class, 'deleteProducts']);
 });
