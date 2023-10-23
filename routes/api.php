@@ -23,4 +23,8 @@ Route::/* middleware('auth')-> */prefix('admin')->group(function() {
    Route::post('/products', [ApiController::class, 'postProducts']);
    Route::put('/products/{uuid}', [ApiController::class, 'putProducts']);
    Route::delete('/products/{uuid}', [ApiController::class, 'deleteProducts']);
+
+   Route::post('/destinations', [ApiController::class, 'postDestinations']);
+   Route::put('/destinations/{uuid}', [ApiController::class, 'putDestinations']);
+   Route::delete('/destinations/{uuid}', [ApiController::class, 'deleteDestinations']);
 });

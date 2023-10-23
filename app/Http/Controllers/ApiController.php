@@ -62,9 +62,45 @@ class ApiController extends Controller
    }
 
    public function getDestinations(Request $request) {
-      $data = Destination::paginate(10)->withQueryString();
-      $data->setHidden(['id', 'uuid']);
+      $data = Destination::latest()->paginate(10)->withQueryString();
+      $data->setHidden(['id']);
       return $this->apiResponse($data);
+   }
+
+   public function postDestinations(Request $request) {
+      $validator = Validator::make($request->all(), [
+         'name' => 'required',
+         'slug' => 'required'
+      ]);
+
+      if ($validator->fails()) return redirect('/admin/destinations')->withErrors($validator)->withInput();
+
+      $data = $validator->validated();
+      $data['uuid'] = Str::uuid()->toString();
+      $destination = Destination::create($data);
+
+      return redirect()->back();
+   }
+
+   public function putDestinations(Request $request, $uuid) {
+      $validator = Validator::make($request->all(), [
+         'name' => 'required',
+         'slug' => 'required'
+      ]);
+
+      if ($validator->fails()) return redirect('/admin/destinations')->withErrors($validator)->withInput();
+
+      $data = $validator->validated();
+      Destination::where('uuid', $uuid)->update($data);
+
+      return back(303);
+   }
+
+   public function deleteDestinations($uuid) {
+      Destination::where('uuid', $uuid)->delete();
+      Price::where('destination_uuid', $uuid)->delete();
+
+      return back(303);
    }
 
    public function getPrices(Request $request) {

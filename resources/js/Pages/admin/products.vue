@@ -106,7 +106,7 @@ const deleteData = async (uuid) => {
 }
 
 const fetchData = async (page = 1) => {
-   const url = 'http://dhiya-trans-wisata.test/api/admin/products'
+   const url = `/api/admin/products`
    const response = await fetch(`${url}?page=${page}`, {
       method: 'GET'
    })
