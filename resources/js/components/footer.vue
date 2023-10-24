@@ -1,9 +1,9 @@
 <template>
-   <footer class="bg-amber-500">
+   <footer class="bg-gray-100">
       <div class="w-1/2 mx-auto">
-         <div class="flex justify-between gap-4 py-12 text-gray-50">
+         <div class="flex justify-between gap-4 py-12">
             <div class="grid gap-2 place-content-start">
-               <p class="font-serif text-xl font-semibold uppercase">
+               <p class="font-bold text-lg uppercase">
                   Our Company
                </p>
                <ul class="list-disc ms-4">
@@ -26,15 +26,15 @@
             </div>
             <div class="grid gap-4">
                <div>
-                  <p class="font-serif text-xl font-semibold">Alamat</p>
+                  <p class="font-bold text-lg">Alamat</p>
                   <p class="font-medium">{{ company.address }}</p>
                </div>
                <div>
-                  <p class="font-serif text-xl font-semibold">Email</p>
+                  <p class="font-bold text-lg">Email</p>
                   <p class="font-medium">{{ company.email }}</p>
                </div>
                <div>
-                  <p class="font-serif text-xl font-semibold">Telepon</p>
+                  <p class="font-bold text-lg">Telepon</p>
                   <p class="font-medium">{{ company.phone }}</p>
                </div>
             </div>

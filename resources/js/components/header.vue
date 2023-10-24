@@ -2,11 +2,11 @@
 <header>
    <div class="shadow">
       <div class="container mx-auto">
-         <div class="flex justify-around items-center py-2">
+         <div class="flex justify-around items-center py-3">
             <div class="flex gap-8 uppercase">
                <Link
                   href="/"
-                  class="p-4 hover:text-amber-500 transition-colors"
+                  class="p-2 hover:text-amber-500 transition-colors"
                   :class="$page.component === 'landing' ? activeClass : ''"
                >
                   Home
@@ -14,7 +14,7 @@
 
                <Link
                   href="/products"
-                  class="p-4 hover:text-amber-500 transition-colors"
+                  class="p-2 hover:text-amber-500 transition-colors"
                   :class="$page.component === 'products' ? activeClass : ''"
                >
                   Produk
@@ -31,7 +31,7 @@
             <div class="flex gap-8 uppercase">
                <Link
                   href="/about"
-                  class="p-4 hover:text-amber-500 transition-colors"
+                  class="p-2 hover:text-amber-500 transition-colors"
                   :class="$page.component === 'about' ? activeClass : ''"
                >
                   Tentang
@@ -39,7 +39,7 @@
 
                <Link
                   href="/contacts"
-                  class="p-4 hover:text-amber-500 transition-colors"
+                  class="p-2 hover:text-amber-500 transition-colors"
                   :class="$page.component === 'contacts' ? activeClass : ''"
                >
                   Kontak
