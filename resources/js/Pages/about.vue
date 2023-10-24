@@ -20,7 +20,7 @@
             </div>
             <div class="grid gap-4 place-content-center">
                <p class="text-lg">
-                  {{ company.name }} adalah perusahaan yang bergerak di bidang jasa penyedia transportasi pariwisata dan layanan jasa peralanan pariwisata. kami memberikan pelayanan jasa transportasi yang sesuai dengan kebutuhan anda.
+                  {{ company.name }} adalah perusahaan yang bergerak di bidang jasa penyedia transportasi pariwisata dan layanan jasa perjalanan pariwisata. kami memberikan pelayanan jasa transportasi yang sesuai dengan kebutuhan anda.
                </p>
                <p class="text-lg">
                   Dengan tim yang berpengalaman dan performa layanan terbaik, kami siap melayani kebutuhan pariwisata anda dengan harga yang bersahabat.

@@ -3,18 +3,18 @@
 
 <default-layout>
    <Hero
-      height-class="h-[calc((100vh-72px)*0.35)]"
+      height-class="h-[300px]"
       md-height-class="h-[650px]"
-      bg-class="bg-gray-50"
+      bg-class="bg-[url('/img/geometric.jpg')]"
       hide-overlay
    >
-      <p class="font-serif uppercase text-gray-800 tracking-wide font-semibold text-3xl md:text-5xl">
+      <p class="font-serif uppercase tracking-wide font-semibold text-3xl md:text-5xl">
          {{ product.name }}
       </p>
    </Hero>
 
    <div class="container mx-auto">
-      <div class="grid grid-cols-1 gap-12 py-40">
+      <div class="grid grid-cols-1 gap-12 py-20">
          <div class="w-2/3 mx-auto text-lg">
             <p class="mb-4">
                Sewa <b>{{ product?.name }}</b> Bandung dengan harga yang terjangkau didukung dengan fasilitas yang bagus. {{ company.name }} merupakan perusahaan penyedia jasa transportasi di Bandung.
@@ -30,20 +30,8 @@
             </p>
          </div>
 
-         <div class="w-2/3 mx-auto relative overflow-hidden">
-            <div class="relative overflow-auto">
-               <div class="relative w-full flex gap-6 p-8 snap-x snap-mandatory overflow-x-auto">
-                  <template v-for="image in product.images">
-                     <div class="snap-center h-48 w-64 shrink-0">
-                        <img class="shrink-0 h-full w-full object-cover rounded-lg shadow hover:shadow-md bg-white transition-all" :src="image.path">
-                     </div>
-                  </template>
-               </div>
-            </div>
-         </div>
-
          <div class="w-2/3 mx-auto">
-            <h2 class="font-serif font-bold text-2xl pb-6 text-center">
+            <h2 class="font-bold text-2xl pb-6 text-center">
                Detail Produk
             </h2>
             <div class="relative overflow-x-auto">
@@ -62,8 +50,20 @@
             </div>
          </div>
 
+         <div class="w-2/3 mx-auto relative overflow-hidden">
+            <div class="relative overflow-auto">
+               <div class="relative w-full flex gap-6 p-8 snap-x snap-mandatory overflow-x-auto">
+                  <template v-for="image in product.images">
+                     <div class="snap-center h-[28rem] w-auto shrink-0">
+                        <img class="shrink-0 h-full w-full object-cover rounded-lg shadow hover:shadow-md bg-white transition-all" :src="image.path">
+                     </div>
+                  </template>
+               </div>
+            </div>
+         </div>
+
          <div class="w-2/3 mx-auto">
-            <h2 class="font-serif font-bold text-2xl pb-6 text-center">
+            <h2 class="font-bold text-2xl pb-6 text-center">
                Price List
             </h2>
             <div class="relative overflow-x-auto mb-12">
@@ -92,7 +92,7 @@
             </div>
 
             <div class="">
-               <p class="font-serif font-bold text-2xl pb-6 text-center">
+               <p class="font-bold text-2xl pb-6 text-center">
                   Catatan
                </p>
                <ul class="list-disc ps-8 text-lg">

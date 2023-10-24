@@ -1,6 +1,6 @@
 <template>
 <default-layout>
-   <Head title="Landing"/>
+   <Head/>
    <Hero
       height-class="h-[500px]"
       md-height-class="h-[650px]"
@@ -10,7 +10,7 @@
    </Hero>
 
    <div class="container mx-auto">
-      <div class="grid grid-cols-1 gap-24 py-12">
+      <div class="grid grid-cols-1 gap-40 py-28">
          <div class="flex flex-col items-center">
             <p class="font-serif tracking-wide font-bold text-3xl md:text-6xl mb-6">
                Trans Wisata Bandung
