@@ -3,11 +3,12 @@
 
 <default-layout>
    <Hero
-      height-class="h-[calc((100vh-73px)*0.5)]"
+      height-class="h-[300px]"
       md-height-class="h-[650px]"
-      bg-class="bg-[url('/img/bus-bg.jpg')]"
+      bg-class="bg-[url('/img/geometric.jpg')]"
+      hide-overlay
    >
-      <h1 class="font-serif uppercase text-gray-200 tracking-wide font-semibold text-3xl md:text-5xl">
+      <h1 class="font-serif uppercase tracking-wide font-semibold text-3xl md:text-5xl">
          Produk
       </h1>
    </Hero>
@@ -15,19 +16,17 @@
    <div class="container mx-auto">
       <div class="grid grid-cols-1 gap-12 py-40">
          <div class="w-2/3 mx-auto grid gap-4 text-lg">
-            <h2 class="font-serif font-bold text-2xl pb-2 text-center">
-               Produk Kami
-            </h2>
-            <p>Sewa Bus Bandung di {{ company.name }} yang selalu siap menghantar Anda berwisata murah dengan armada bus pariwisata di Bandung, Indonesia dengan pelayanan profesional, bersahabat, dan memuaskan.
+            <p>
+               Sewa Bus Bandung di {{ company.name }} siap mengantar Anda pada perjalanan wisata yang ekonomis dengan armada bus pariwisata terbaik di Bandung, Indonesia. Kami bangga memberikan layanan profesional, ramah, dan memuaskan kepada pelanggan kami.
             </p>
             <p>
-               {{ company.name }} bekerja sama dengan perusahaan Bus pariwisata di Bandung guna menyediakan Sewa Bus Bandung untuk kebutuhan pariwisata dan lainnya.
+               {{ company.name }} menjalin kerja sama dengan perusahaan bus pariwisata terkemuka di Bandung untuk menyediakan layanan Sewa Bus Bandung yang dapat memenuhi berbagai kebutuhan perjalanan wisata dan lainnya.
             </p>
          </div>
-         <div class="grid grid-cols-3 gap-6 place-content-end w-2/3 mx-auto">
+         <div class="grid grid-cols-3 gap-4 place-content-end w-2/3 mx-auto">
             <template v-for="item in props.products">
                <Link :href="`/products/${item.slug}`">
-                  <div class="card p-0 hover:shadow-md hover:text-amber-500 hover:cursor-pointer transition-all">
+                  <div class="card p-0 hover:shadow-lg hover:text-amber-500 hover:cursor-pointer transition-all duration-300">
                      <div class="h-60 border-b">
                         <img :src="item.image.path" alt="" class="object-cover h-full w-full rounded-t-[0.425rem]">
                      </div>
