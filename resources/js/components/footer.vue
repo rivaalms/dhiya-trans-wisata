@@ -40,7 +40,7 @@
             </div>
          </div>
       </div>
-      <div class="bg-white py-2">
+      <div class="py-2">
          <div class="container mx-auto">
             <div class="flex justify-between">
                <p class="text-gray-500 text-sm">

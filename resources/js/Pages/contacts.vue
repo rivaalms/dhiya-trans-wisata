@@ -3,23 +3,29 @@
 
 <default-layout>
    <Hero
-      height-class="h-[calc((100vh-72px)*0.5)]"
+      height-class="h-[300px]"
       md-height-class="h-[650px]"
-      bg-class="bg-[url('/img/bus-bg.jpg')]"
+      bg-class="bg-[url('/img/geometric.jpg')]"
+      hide-overlay
    >
-      <p class="font-serif uppercase text-gray-200 tracking-wide font-semibold text-3xl md:text-5xl">
+      <h1 class="font-serif uppercase tracking-wide font-semibold text-3xl md:text-5xl">
          Kontak
-      </p>
+      </h1>
    </Hero>
 
    <div class="container mx-auto">
       <div class="py-40 grid grid-cols-1 gap-12">
-         <h2 class="font-serif font-bold text-2xl pb-2 text-center">
-            Kontak
-         </h2>
+         <div class="w-2/3 mx-auto">
+            <p class="text-lg pb-2">
+               Silakan melakukan reservasi dengan menghubungi kami melalui kontak yang kami sediakan.
+            </p>
+            <p class="text-lg pb-2">
+               Anda juga bisa mengirimkan pertanyaan, keluhan, dan saran mengenai kualitas produk dan pelayanan kami. Kami menghargai pertanyaan, keluhan, dan saran Anda. Kepuasan Anda adalah prioritas kami, dan kami berkomitmen untuk menjadikan pengalaman Anda bersama kami selancar dan senyaman mungkin.
+            </p>
+         </div>
          <div class="grid grid-cols-2">
-            <div class="flex items-center justify-center">
-               <img src="/img/contact.png" class="h-96 w-auto" alt="">
+            <div class="flex items-center justify-end">
+               <img src="/img/contact.png" class="h-96 w-auto pe-20" alt="">
             </div>
             <div class="col-start-2 grid gap-4 place-content-start text-lg">
                <div class="">
@@ -42,10 +48,10 @@
 </template>
 
 <script setup>
-import { Head, Link, usePage } from '@inertiajs/vue3'
+import { Head, usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'
-import Hero from '../components/hero.vue'
-import DefaultLayout from '../layouts/default.vue'
+import Hero from '@/components/hero.vue'
+import DefaultLayout from '@/layouts/default.vue'
 
 const company = computed(() => usePage().props.company)
 </script>
