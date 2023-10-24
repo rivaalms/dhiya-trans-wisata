@@ -39,7 +39,7 @@ const emit = defineEmits(['close'])
 
 onBeforeMount(() => {
    document.addEventListener("keydown", (e) => {
-      if (this.show && e.key == 'Escape') {
+      if (props.show && e.key == 'Escape') {
             this.close()
       }
    })

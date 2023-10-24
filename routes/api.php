@@ -27,4 +27,11 @@ Route::/* middleware('auth')-> */prefix('admin')->group(function() {
    Route::post('/destinations', [ApiController::class, 'postDestinations']);
    Route::put('/destinations/{uuid}', [ApiController::class, 'putDestinations']);
    Route::delete('/destinations/{uuid}', [ApiController::class, 'deleteDestinations']);
+
+   Route::post('/prices', [ApiController::class, 'postPrices']);
+   Route::put('/prices/{uuid}', [ApiController::class, 'putPrices']);
+   Route::delete('/prices/{uuid}', [ApiController::class, 'deletePrices']);
+
+   Route::get('/options/product', [ApiController::class, 'getProductOptions']);
+   Route::get('/options/destination', [ApiController::class, 'getDestinationOptions']);
 });

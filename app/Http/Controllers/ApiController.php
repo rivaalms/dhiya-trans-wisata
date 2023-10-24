@@ -104,7 +104,7 @@ class ApiController extends Controller
    }
 
    public function getPrices(Request $request) {
-      $query = Price::paginate(10)->withQueryString();
+      $query = Price::latest()->paginate(10)->withQueryString();
       $prices = $this->jsonify($query->items());
       $vehicle_uuid = [];
       $destination_uuid = [];
@@ -131,8 +131,6 @@ class ApiController extends Controller
          $destinationsNameMap[$d['uuid']] = $d['name'];
       }
 
-      $unsetKeys = ['vehicle_uuid', 'destination_uuid'];
-
       foreach ($prices as &$p) {
          if (isset($vehicleNameMap[$p["vehicle_uuid"]])) {
             $p["vehicle"] = $vehicleNameMap[$p["vehicle_uuid"]];
@@ -141,15 +139,59 @@ class ApiController extends Controller
          if (isset($destinationsNameMap[$p['destination_uuid']])) {
             $p['destination'] = $destinationsNameMap[$p['destination_uuid']];
          }
-
-         foreach ($unsetKeys as $unsetKey) {
-            unset($p[$unsetKey]);
-         }
       }
 
       return $this->apiResponse([
          'data' => $prices,
          'laravelData' => $query
       ]);
+   }
+
+   public function postPrices(Request $request) {
+      $validator = Validator::make($request->all(), [
+         'vehicle_uuid' => 'required',
+         'destination_uuid' => 'required',
+         'duration' => 'required',
+         'price' => 'required'
+      ]);
+
+      if ($validator->fails()) return redirect('/admin/prices')->withErrors($validator)->withInput();
+
+      $data = $validator->validated();
+      $data['uuid'] = Str::uuid()->toString();
+      Price::create($data);
+
+      return redirect()->back();
+   }
+
+   public function putPrices(Request $request, $uuid) {
+      $validator = Validator::make($request->all(), [
+         'vehicle_uuid' => 'required',
+         'destination_uuid' => 'required',
+         'duration' => 'required',
+         'price' => 'required'
+      ]);
+
+      if ($validator->fails()) return redirect('/admin/prices')->withErrors($validator)->withInput();
+
+      $data = $validator->validated();
+      Price::where('uuid', $uuid)->update($data);
+
+      return back(303);
+   }
+
+   public function deletePrices($uuid) {
+      Price::where('uuid', $uuid)->delete();
+      return back(303);
+   }
+
+   public function getProductOptions() {
+      $data = Vehicle::select('uuid', 'name')->get();
+      return $this->apiResponse($data);
+   }
+
+   public function getDestinationOptions() {
+      $data = Destination::select('uuid', 'name')->get();
+      return $this->apiResponse($data);
    }
 }
