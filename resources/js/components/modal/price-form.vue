@@ -60,6 +60,7 @@
                type="text"
                class="w-full mt-1 p-2 rounded border px-3"
                :class="[props.errors && props.errors.duration ? 'border-red-500' : '']"
+               @keypress="useValidateNumber"
             />
             <p v-if="props.errors && props.errors.duration" class="text-red-500 text-sm">
                {{ props.errors.duration }}
@@ -76,6 +77,7 @@
                type="text"
                class="w-full mt-1 p-2 rounded border px-3"
                :class="[props.errors && props.errors.price ? 'border-red-500' : '']"
+               @keypress="useValidateNumber"
             />
             <p v-if="props.errors && props.errors.price" class="text-red-500 text-sm">
                {{ props.errors.price }}
@@ -104,7 +106,7 @@
 import { useForm } from '@inertiajs/vue3'
 import { onUpdated, onMounted, ref } from 'vue'
 import Modal from '@/components/modal/modal.vue'
-// import { useGenerateSlug }from '@/helpers'
+import { useFormatCurrency, useValidateNumber }from '@/helpers'
 
 const props = defineProps({
    show: {
