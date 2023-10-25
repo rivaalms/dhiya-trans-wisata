@@ -3,7 +3,6 @@
 <default-layout>
    <Hero
       height-class="h-[300px]"
-      md-height-class="h-[650px]"
       bg-class="bg-[url('/img/geometric.jpg')]"
       hide-overlay
    >
@@ -12,9 +11,9 @@
       </h1>
    </Hero>
 
-   <div class="container mx-auto">
+   <div class="container mx-auto px-4 md:px-0">
       <div class="grid grid-cols-1 gap-12 py-40">
-         <div class="w-2/3 mx-auto grid grid-cols-2 gap-4">
+         <div class="w-full md:w-2/3 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div class="flex justify-center">
                <img src="/img/dhiya-rental-logo.png" class="h-80 w-auto" alt="">
             </div>
@@ -30,9 +29,9 @@
       </div>
    </div>
 
-   <div class="bg-emerald-900">
-      <div class="w-2/3 mx-auto py-20">
-         <div class="grid grid-cols-2 gap-12">
+   <div class="bg-emerald-900 px-4 md:px-0">
+      <div class="w-full md:w-2/3 mx-auto py-20">
+         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div class="text-gray-200">
                <h2 class="font-serif font-bold text-2xl pb-2">
                   Visi

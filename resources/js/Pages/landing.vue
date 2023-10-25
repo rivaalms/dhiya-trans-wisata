@@ -2,8 +2,7 @@
 <default-layout>
    <Head/>
    <Hero
-      height-class="h-[500px]"
-      md-height-class="h-[650px]"
+      height-class="lg:h-[500px] md:h-[650px] h-[250px]"
       bg-class="bg-[url('/img/gedung-sate.jpg')]"
       hide-overlay
    >
@@ -12,30 +11,32 @@
    <div class="container mx-auto">
       <div class="grid grid-cols-1 gap-40 py-28">
          <div class="flex flex-col items-center">
-            <p class="font-serif tracking-wide font-bold text-3xl md:text-6xl mb-6">
+            <p class="font-serif tracking-wide font-bold text-3xl md:text-5xl lg:text-6xl mb-2 lg:mb-6">
                Trans Wisata Bandung
             </p>
             <div class="relative mb-12">
-               <p class="font-bold text-3xl">
+               <p class="font-bold text-xl md:text-3xl lg:text-3xl text-center">
                   Safe, Reliable, Unforgettable Journeys
                </p>
-               <div class="bg-amber-200 absolute h-6 -inset-x-8 top-5 -z-10"></div>
+               <div class="bg-amber-200 absolute h-4 md:h-6 -inset-x-4 lg:-inset-x-8 top-4 md:top-5 -z-10"></div>
             </div>
-            <Link href="/contacts" class="py-3 px-5 bg-amber-500 text-white font-semibold text-xl hover:bg-amber-600 transition-all duration-300">
+            <Link href="/contacts" class="py-3 px-5 bg-amber-500 text-white font-semibold  text-base md:text-lg lg:text-xl hover:bg-amber-600 transition-all duration-300">
                Reservasi Sekarang
             </Link>
          </div>
 
          <!-- SECTION: Product -->
-         <div class="grid grid-cols-3 gap-4 place-content end w-2/3 mx-auto">
-            <p class="col-span-3 font-bold uppercase text-2xl text-center">
-               Produk Kami
-            </p>
+         <div class="grid grid-cols-3 gap-4 w-full md:w-2/3 lg:w-5/6 xl:w-2/3 px-2 md:px-0 md:mx-auto">
+            <div class="col-span-3 flex justify-center">
+               <p class="font-bold uppercase text-2xl">
+                  Produk Kami
+               </p>
+            </div>
             <template v-for="item in props.products">
-               <Link :href="`/products/${item.slug}`">
+               <Link :href="`/products/${item.slug}`" class="col-span-3 lg:col-span-1">
                   <div class="card p-0 hover:shadow-lg hover:text-amber-500 hover:cursor-pointer transition-all duration-300">
-                     <div class="aspect-[1.5/1] border-b">
-                        <img :src="item.image" alt="" class="object-cover object-center h-full w-auto rounded-t-[0.425rem]">
+                     <div class="h-60 border-b">
+                        <img :src="item.image" alt="" class="object-cover object-center h-full w-full rounded-t-[0.425rem]">
                      </div>
                      <div class="p-6">
                         <p class="text-center text-lg font-semibold">

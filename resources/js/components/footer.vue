@@ -1,7 +1,7 @@
 <template>
    <footer class="bg-gray-100">
-      <div class="w-1/2 mx-auto">
-         <div class="flex justify-between gap-4 py-12">
+      <div class="w-full lg:w-3/4 xl:w-1/2 px-4 lg:px-0 mx-auto">
+         <div class="flex flex-col md:flex-row md:justify-between gap-4 py-12">
             <div class="grid gap-2 place-content-start">
                <p class="font-bold text-lg uppercase">
                   Our Company
@@ -42,7 +42,7 @@
       </div>
       <div class="py-2">
          <div class="container mx-auto">
-            <div class="flex justify-between">
+            <div class="flex flex-col md:flex-row items-center md:justify-between">
                <p class="text-gray-500 text-sm">
                   &copy; 2023 {{ company.name }}
                </p>

@@ -19,7 +19,7 @@
                </Link>
             </div>
 
-            <div class="relative group">
+            <div class="relative hidden md:block group">
                <Link
                   href="/"
                   class="font-serif text-2xl font-semibold uppercase"

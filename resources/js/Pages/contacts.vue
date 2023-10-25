@@ -4,7 +4,6 @@
 <default-layout>
    <Hero
       height-class="h-[300px]"
-      md-height-class="h-[650px]"
       bg-class="bg-[url('/img/geometric.jpg')]"
       hide-overlay
    >
@@ -23,11 +22,11 @@
                Anda juga bisa mengirimkan pertanyaan, keluhan, dan saran mengenai kualitas produk dan pelayanan kami. Kami menghargai pertanyaan, keluhan, dan saran Anda. Kepuasan Anda adalah prioritas kami, dan kami berkomitmen untuk menjadikan pengalaman Anda bersama kami selancar dan senyaman mungkin.
             </p>
          </div>
-         <div class="grid grid-cols-2">
-            <div class="flex items-center justify-end">
+         <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="flex items-center justify-center lg:justify-end">
                <img src="/img/contact.png" class="h-96 w-auto pe-20" alt="">
             </div>
-            <div class="col-start-2 grid gap-4 place-content-start text-lg">
+            <div class="lg:col-start-2 grid gap-4 place-content-center lg:place-content-start text-lg">
                <div class="">
                   <p class="text-gray-500 font-semibold">Alamat</p>
                   <p class="">{{ company.address }}</p>

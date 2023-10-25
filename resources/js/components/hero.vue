@@ -1,7 +1,7 @@
 <template>
 <div
    class="backdrop-brightness-50 bg-center bg-no-repeat bg-cover relative"
-   :class="[ heightClass, mdHeightClass, bgClass ]"
+   :class="[ heightClass, /* mdHeightClass, */ bgClass ]"
 >
    <div v-if="!hideOverlay" class="absolute h-full w-full bg-black -z-30 opacity-[50%]" />
    <div
@@ -21,11 +21,11 @@ const props = defineProps({
       required: false,
       default: 'h-[calc(100vh-72px)]'
    },
-   mdHeightClass: {
-      type: String,
-      required: false,
-      default: ''
-   },
+   // mdHeightClass: {
+   //    type: String,
+   //    required: false,
+   //    default: ''
+   // },
    bgClass: {
       type: String,
       required: true
