@@ -41,7 +41,7 @@
          </div>
       </div>
       <div class="py-2">
-         <div class="container mx-auto">
+         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center md:justify-between">
                <p class="text-gray-500 text-sm">
                   &copy; 2023 {{ company.name }}

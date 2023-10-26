@@ -54,7 +54,7 @@
             <div class="relative overflow-auto">
                <div class="relative w-full flex gap-6 p-8 snap-x snap-mandatory overflow-x-auto">
                   <template v-for="image in product.images">
-                     <div class="snap-center h-[28rem] w-auto shrink-0">
+                     <div class="snap-center h-48 w-64 lg:h-64 lg:w-[21rem] xl:h-96 xl:w-[32rem] shrink-0">
                         <img class="shrink-0 h-full w-full object-cover rounded-lg shadow hover:shadow-md bg-white transition-all" :src="image.path">
                      </div>
                   </template>

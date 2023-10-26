@@ -14,8 +14,8 @@
    </Hero>
 
    <div class="container mx-auto">
-      <div class="grid grid-cols-1 gap-12 py-40">
-         <div class="w-2/3 mx-auto grid gap-4 text-lg">
+      <div class="grid grid-cols-1 gap-12 py-40 w-full lg:w-5/6 xl:w-2/3 mx-auto px-4 lg:px-0">
+         <div class="grid gap-4 text-lg">
             <p>
                Sewa Bus Bandung di {{ company.name }} siap mengantar Anda pada perjalanan wisata yang ekonomis dengan armada bus pariwisata terbaik di Bandung, Indonesia. Kami bangga memberikan layanan profesional, ramah, dan memuaskan kepada pelanggan kami.
             </p>
@@ -23,11 +23,11 @@
                {{ company.name }} menjalin kerja sama dengan perusahaan bus pariwisata terkemuka di Bandung untuk menyediakan layanan Sewa Bus Bandung yang dapat memenuhi berbagai kebutuhan perjalanan wisata dan lainnya.
             </p>
          </div>
-         <div class="grid grid-cols-3 gap-4 place-content-end w-2/3 mx-auto">
+         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-content-end">
             <template v-for="item in props.products">
-               <Link :href="`/products/${item.slug}`">
+               <Link :href="`/products/${item.slug}`" class="col-span-1">
                   <div class="card p-0 hover:shadow-lg hover:text-amber-500 hover:cursor-pointer transition-all duration-300">
-                     <div class="h-60 border-b">
+                     <div class="h-60 sm:h-40 lg:h-60 border-b">
                         <img :src="item.image.path" alt="" class="object-cover h-full w-full rounded-t-[0.425rem]">
                      </div>
                      <div class="p-6">

@@ -26,27 +26,29 @@
          </div>
 
          <!-- SECTION: Product -->
-         <div class="grid grid-cols-3 gap-4 w-full md:w-2/3 lg:w-5/6 xl:w-2/3 px-2 md:px-0 md:mx-auto">
-            <div class="col-span-3 flex justify-center">
+         <div class="grid grid-cols-1 gap-4 w-full px-2 md:px-0 md:mx-auto">
+            <div class="flex justify-center mx-auto md:w-2/3 lg:w-5/6 xl:w-2/3">
                <p class="font-bold uppercase text-2xl">
                   Produk Kami
                </p>
             </div>
-            <template v-for="item in props.products">
-               <Link :href="`/products/${item.slug}`" class="col-span-3 lg:col-span-1">
-                  <div class="card p-0 hover:shadow-lg hover:text-amber-500 hover:cursor-pointer transition-all duration-300">
-                     <div class="h-60 border-b">
-                        <img :src="item.image" alt="" class="object-cover object-center h-full w-full rounded-t-[0.425rem]">
+            <div class="px-4 lg:px-0 w-full lg:w-5/6 xl:w-2/3 mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
+               <template v-for="item in props.products">
+                  <Link :href="`/products/${item.slug}`" class="col-span-2 sm:col-span-1">
+                     <div class="card p-0 hover:shadow-lg hover:text-amber-500 hover:cursor-pointer transition-all duration-300">
+                        <div class="h-60 border-b">
+                           <img :src="item.image" alt="" class="object-cover object-center h-full w-full rounded-t-[0.425rem]">
+                        </div>
+                        <div class="p-6">
+                           <p class="text-center text-lg font-semibold">
+                              {{ item.name }}
+                           </p>
+                        </div>
                      </div>
-                     <div class="p-6">
-                        <p class="text-center text-lg font-semibold">
-                           {{ item.name }}
-                        </p>
-                     </div>
-                  </div>
-               </Link>
-            </template>
-            <div class="col-span-3 pt-4 flex justify-center">
+                  </Link>
+               </template>
+            </div>
+            <div class="pt-4 flex justify-center">
                <Link href="/products" class="px-4 py-2 bg-amber-500 text-white font-semibold hover:bg-amber-600 transition-all duration-300">
                   Lihat Selengkapnya
                </Link>
