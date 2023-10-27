@@ -25,12 +25,13 @@ Route::get('/products', [AppController::class, 'products']);
 Route::get('/products/{slug}', [AppController::class, 'productDetails']);
 
 Route::prefix('admin')->group(function() {
+   Route::get('/', fn() => redirect('/admin/products'));
    Route::get('/login', [AdminController::class, 'login'])->name('login');
    Route::post('/login-handle', [UserController::class, 'login']);
 
    Route::middleware('auth')->group(function() {
-      Route::get('/dashboard', [AdminController::class, 'dashboard']);
       Route::get('/products', [AdminController::class, 'products']);
+      Route::get('/product-details/{slug}', [AdminController::class, 'productDetails']);
       Route::get('/destinations', [AdminController::class, 'destinations']);
       Route::get('/prices', [AdminController::class, 'prices']);
    });

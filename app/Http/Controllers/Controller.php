@@ -38,4 +38,8 @@ class Controller extends BaseController
    public function jsonify($data) {
       return Json::decode(Json::encode($data));
    }
+
+   public function lastArrayItem(Array $array) {
+      return end($array);
+   }
 }

@@ -13,13 +13,6 @@
             </div>
             <div class="flex gap-4">
                <Link
-                  href="/admin/dashboard"
-                  class="py-2 px-2 hover:text-blue-500 transition-all"
-                  :class="$page.component === 'admin/dashboard' ? activeClass : ''"
-               >
-                  Dashboard
-               </Link>
-               <Link
                   href="/admin/products"
                   class="py-2 px-2 hover:text-blue-500 transition-all"
                   :class="$page.component === 'admin/products' ? activeClass : ''"
@@ -39,12 +32,6 @@
                   :class="$page.component === 'admin/prices' ? activeClass : ''"
                >
                   Harga
-               </Link>
-               <Link
-                  href="#"
-                  class="py-2 px-2 hover:text-blue-500 transition-all"
-               >
-                  Gambar
                </Link>
             </div>
          </div>

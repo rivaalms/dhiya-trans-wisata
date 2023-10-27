@@ -29,6 +29,13 @@ class AdminController extends Controller
       return Inertia::render('admin/products'/* , compact('products') */);
    }
 
+   public function productDetails($slug) {
+      // $query = Vehicle::where('slug', $slug)->get();
+      // $product = Vehicle::mapVehicles($query)->first();
+
+      return Inertia::render('admin/product-details', compact('slug'));
+   }
+
    public function destinations()
    {
       return Inertia::render('admin/destinations');

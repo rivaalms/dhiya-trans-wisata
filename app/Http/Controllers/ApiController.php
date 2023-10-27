@@ -8,6 +8,7 @@ use App\Models\Vehicle;
 use App\Models\Destination;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
@@ -193,5 +194,47 @@ class ApiController extends Controller
    public function getDestinationOptions() {
       $data = Destination::select('uuid', 'name')->get();
       return $this->apiResponse($data);
+   }
+
+   public function getProductDetails($slug) {
+      $query = Vehicle::where('slug', $slug)->get();
+      $data = Vehicle::mapVehicles($query)->first();
+      return $this->apiResponse($data);
+   }
+
+   public function postProductImage(Request $request) {
+      $store = $request->file('image')->store('img', 'public');
+      $path = env('APP_URL') . "/storage/" . $store;
+      $uuid = Str::uuid()->toString();
+      $vehicle_uuid = Vehicle::where('slug', $request->slug)->first()->uuid;
+      $image = Image::create(compact('vehicle_uuid', 'path', 'uuid'));
+
+      return redirect()->back();
+   }
+
+   public function putProductImage(Request $request) {
+      $image = Image::where('uuid', $request->uuid);
+
+      $oldPath = "/img/" . $this->lastArrayItem(explode('/', $image->first()->path));
+
+      if (Storage::disk('public')->exists($oldPath)) {
+         Storage::disk('public')->delete($oldPath);
+      }
+
+      $store = $request->file('image')->store('img', 'public');
+      $path = env('APP_URL') . "/storage/" . $store;
+
+      $image->update(compact('path'));
+      return back(303);
+   }
+
+   public function deleteProductImage($uuid) {
+      $image = Image::where('uuid', $uuid);
+      $path = "/img/" . $this->lastArrayItem(explode('/', $image->first()->path));
+
+      if (Storage::disk('public')->exists($path)) Storage::disk('public')->delete($path);
+
+      $image->delete();
+      return back(303);
    }
 }

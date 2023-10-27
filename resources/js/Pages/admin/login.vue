@@ -59,18 +59,4 @@ const login = async () => {
    form.password = btoa(password.value)
    form.post('/admin/login-handle')
 }
-
-// const validate = async () => {
-//    await new Promise(resolve => {
-//       if (!form.data().email || form.data().email.length < 1) error.value.email = 'Email harus diisi'
-//       if (form.data().email && !isEmailValid(form.data().email)) error.value.email = 'Email tidak valid'
-//       if (!password.value || password.value.length < 1) error.value.password = 'Kata sandi harus diisi'
-//       resolve()
-//    })
-// }
-
-// const isEmailValid = (email) => {
-//    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-//    return emailRegex.test(email)
-// }
 </script>

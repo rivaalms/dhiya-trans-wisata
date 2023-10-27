@@ -34,4 +34,9 @@ Route::/* middleware('auth')-> */prefix('admin')->group(function() {
 
    Route::get('/options/product', [ApiController::class, 'getProductOptions']);
    Route::get('/options/destination', [ApiController::class, 'getDestinationOptions']);
+
+   Route::get('/product/{slug}', [ApiController::class, 'getProductDetails']);
+   Route::post('/product-image', [ApiController::class, 'postProductImage']);
+   Route::put('/product-image', [ApiController::class, 'putProductImage']);
+   Route::delete('/product-image/{uuid}', [ApiController::class, 'deleteProductImage']);
 });

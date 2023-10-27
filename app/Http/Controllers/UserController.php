@@ -36,7 +36,7 @@ class UserController extends Controller
 
       if (Auth::attempt(compact('email', 'password'))) {
          $request->session()->regenerate();
-         return redirect('/admin/dashboard');
+         return redirect('/admin');
       }
    }
 }

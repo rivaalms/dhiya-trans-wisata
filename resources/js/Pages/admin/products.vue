@@ -22,6 +22,9 @@
                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">{{ useFormatCurrency(item.price) }}</th>
                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                   <div class="flex gap-4">
+                     <Link :href="`/admin/product-details/${item.slug}`" class="p-2 bg-blue-500 rounded text-sm text-white hover:bg-blue-600 transition-all duration-300">
+                        Gambar
+                     </Link>
                      <button class="p-2 bg-amber-500 rounded text-sm text-white hover:bg-amber-600 transition-all duration-300" @click.stop="showModal(item.uuid, item)">
                         Sunting
                      </button>
@@ -59,7 +62,7 @@ import ProductFormModal from '@/components/modal/product-form.vue'
 import { ref } from 'vue'
 import { TailwindPagination } from 'laravel-vue-pagination'
 import { useFormatCurrency } from '@/helpers'
-import { router } from '@inertiajs/vue3'
+import { router, Link } from '@inertiajs/vue3'
 
 const props = defineProps({
    errors: Object
