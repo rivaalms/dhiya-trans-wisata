@@ -34,5 +34,6 @@ Route::prefix('admin')->group(function() {
       Route::get('/product-details/{slug}', [AdminController::class, 'productDetails']);
       Route::get('/destinations', [AdminController::class, 'destinations']);
       Route::get('/prices', [AdminController::class, 'prices']);
+      Route::post('logout', [UserController::class, 'logout']);
    });
 });
