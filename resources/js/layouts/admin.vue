@@ -1,7 +1,7 @@
 <template>
 <Header></Header>
 
-<div class="container mx-auto">
+<div class="container mx-auto pb-8">
    <div class="py-12">
       <h2 class="text-2xl font-bold">
          {{ title }}
