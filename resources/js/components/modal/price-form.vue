@@ -16,7 +16,7 @@
                id="vehicle_uuid"
                name="vehicle_uuid"
                placeholder="Pilih produk..."
-               class="w-full mt-1 p-2 rounded border px-3"
+               class="w-full mt-1 p-2 rounded border px-3 bg-white"
                :class="[props.errors && props.errors.vehicle_uuid ? 'border-red-500' : '']"
             >
                <option disabled value="">Pilih produk...</option>
@@ -37,7 +37,7 @@
                id="destination_uuid"
                name="destination_uuid"
                placeholder="Pilih destinasi..."
-               class="w-full mt-1 p-2 rounded border px-3"
+               class="w-full mt-1 p-2 rounded border px-3 bg-white"
                :class="[props.errors && props.errors.destination_uuid ? 'border-red-500' : '']"
             >
                <option disabled value="">Pilih destinasi...</option>
