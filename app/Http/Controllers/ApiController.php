@@ -207,7 +207,15 @@ class ApiController extends Controller
       $path = env('APP_URL') . "/storage/" . $store;
       $uuid = Str::uuid()->toString();
       $vehicle_uuid = Vehicle::where('slug', $request->slug)->first()->uuid;
-      $image = Image::create(compact('vehicle_uuid', 'path', 'uuid'));
+      $is_cover = !!$request->is_cover;
+
+      if ($is_cover) {
+         $oldCover = Image::where('vehicle_uuid', $vehicle_uuid)->where('is_cover', true)->update([
+            'is_cover' => false
+         ]);
+      }
+
+      $image = Image::create(compact('vehicle_uuid', 'path', 'uuid', 'is_cover'));
 
       return redirect()->back();
    }
@@ -215,16 +223,25 @@ class ApiController extends Controller
    public function putProductImage(Request $request) {
       $image = Image::where('uuid', $request->uuid);
 
-      $oldPath = "/img/" . $this->lastArrayItem(explode('/', $image->first()->path));
+      if ($request->file('image')) {
+         $oldPath = "/img/" . $this->lastArrayItem(explode('/', $image->first()->path));
 
-      if (Storage::disk('public')->exists($oldPath)) {
-         Storage::disk('public')->delete($oldPath);
+         if (Storage::disk('public')->exists($oldPath)) {
+            Storage::disk('public')->delete($oldPath);
+         }
+
+         $store = $request->file('image')->store('img', 'public');
+         $path = env('APP_URL') . "/storage/" . $store;
+
+         $image->update(compact('path'));
       }
 
-      $store = $request->file('image')->store('img', 'public');
-      $path = env('APP_URL') . "/storage/" . $store;
+      $is_cover = !!$request->is_cover;
+      $oldCover = Image::where('vehicle_uuid', $image->first()->vehicle_uuid)->where('is_cover', true)->update([
+         'is_cover' => false
+      ]);
+      $image->update(compact('is_cover'));
 
-      $image->update(compact('path'));
       return back(303);
    }
 

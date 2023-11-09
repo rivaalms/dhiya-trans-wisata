@@ -11,6 +11,9 @@ class Image extends Model
 
    protected $guarded = ['id'];
    protected $hidden = ['id'];
+   protected $casts = [
+      'is_cover' => 'boolean'
+   ];
 
    public function vehicle() {
       return $this->belongsTo(Vehicle::class, 'vehicle_uuid', 'uuid');

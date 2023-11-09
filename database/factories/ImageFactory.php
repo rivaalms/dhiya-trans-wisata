@@ -18,7 +18,8 @@ class ImageFactory extends Factory
    {
       $uuid = fake()->uuid();
       // $vehicle_id = fake()->numberBetween(1, 10);
-      $path = fake()->imageUrl();
-      return compact('uuid', 'path');
+      $path = /* fake()->imageUrl(); */ null;
+      $is_cover = false;
+      return compact('uuid', 'path', 'is_cover');
    }
 }

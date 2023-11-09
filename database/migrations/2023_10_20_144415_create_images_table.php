@@ -15,7 +15,8 @@ return new class extends Migration
          $table->id();
          $table->uuid('uuid');
          $table->uuid('vehicle_uuid');
-         $table->string('path');
+         $table->string('path')->nullable();
+         $table->boolean('is_cover');
          $table->timestamps();
       });
    }

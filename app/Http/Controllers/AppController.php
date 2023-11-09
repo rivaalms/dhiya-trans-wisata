@@ -15,7 +15,7 @@ class AppController extends Controller
       $products = Vehicle::all()->take(3);
 
       foreach ($products as $p) {
-         $p->image = Image::where('vehicle_uuid', $p->uuid)->first()?->path;
+         $p->image = Image::where('vehicle_uuid', $p->uuid)->where('is_cover', true)->first()?->path;
       }
 
       return Inertia::render('landing', compact('products'));

@@ -24,6 +24,15 @@
                {{ props.errors.image }}
             </p>
          </div>
+         <div class="flex gap-2 items-center">
+            <input
+               v-model="form.is_cover"
+               type="checkbox"
+            />
+            <label for="is_cover" class="block">
+               Jadikan cover?
+            </label>
+         </div>
       </div>
       <div class="mt-4 flex justify-end gap-2">
          <button
@@ -34,7 +43,7 @@
          </button>
          <button
             class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-300 transition-all duration-300 disabled:bg-blue-400 disabled:hover:shadow-none"
-            :disabled="!form.image"
+            :disabled="!isEdit && !form.image"
             @click.stop="submit"
          >
             Submit
@@ -62,6 +71,10 @@ const props = defineProps({
       type: String,
       required: true
    },
+   isEdit: {
+      type: Boolean,
+      required: true,
+   },
    data: {
       required: false
    },
@@ -78,7 +91,8 @@ const emit = defineEmits(['close'])
 const form = useForm({
    slug: '',
    uuid: '',
-   image: null
+   image: null,
+   is_cover: false
 })
 
 watch(() => props.id, () => {
