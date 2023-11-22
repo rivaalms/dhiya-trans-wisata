@@ -62,7 +62,26 @@
             </div>
          </div>
 
-         <div class="w-2/3 mx-auto">
+         <div class="w-2/3 mx-auto text-lg">
+            <h2 class="font-bold text-2xl pb-6 text-center">
+               Panduan Reservasi
+            </h2>
+
+            <p class="mb-4">
+               Anda bisa menghubungi kami melalui SMS/Telp/WhatsApp dengan nomor yang tertera di situs web kami. Pastikan untuk menentukan kapasitas dan jenis bus yang Anda perlukan. Sampaikan kepada Customer Service kami mengenai rencana tanggal keberangkatan, alamat penjemputan yang jelas, dan alamat tujuan untuk mengonfirmasi harga sewa.
+            </p>
+            <p class="mb-4">
+               Setelah memberikan informasi sesuai dengan keterangan diatas, kami akan memberitahukan ketersediaan bus pada tanggal yang diinginkan dan total biaya sewa. Jika konfirmasi pemesanan telah sesuai, silakan lakukan pembayaran sesuai prosedur yang berlaku di Dhiya Trans Wisata.
+            </p>
+            <p class="mb-4">
+               Pembayaran dapat dilakukan setelah kami memastikan ketersediaan unit bus dan Anda menyetujui penggunaan layanan kami. Diperlukan uang muka (DP) sebesar minimal 25% dari total biaya sewa bus, yang tidak dapat dikembalikan dalam kasus pembatalan sewa.
+            </p>
+            <p class="mb-4">
+               Pelunasan harus diselesaikan paling lambat H-3 sebelum keberangkatan pada hari yang ditentukan, sementara informasi mengenai nomor driver akan diberikan pada H-1 sebelum keberangkatan. Uang muka tidak dapat diuangkan kembali, dan pembatalan yang dilakukan 3 hari sebelum hari keberangkatan akan dikenakan biaya sebesar 100% dari harga sewa transportasi.
+            </p>
+         </div>
+
+         <!-- <div class="w-2/3 mx-auto">
             <h2 class="font-bold text-2xl pb-6 text-center">
                Price List
             </h2>
@@ -107,7 +126,7 @@
                   </li>
                </ul>
             </div>
-         </div>
+         </div> -->
       </div>
    </div>
 </default-layout>
@@ -118,7 +137,7 @@ import Hero from '@/components/hero.vue'
 import DefaultLayout from '@/layouts/default.vue'
 import { computed } from 'vue'
 import { Head, usePage } from '@inertiajs/vue3'
-import { useFormatCurrency } from '@/helpers'
+// import { useFormatCurrency } from '@/helpers'
 const props = defineProps({
    product: Array
 })
