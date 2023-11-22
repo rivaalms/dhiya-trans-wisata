@@ -23,6 +23,26 @@ class VehicleSeeder extends Seeder
          'name' => 'Luxury Bus',
          'slug' => 'luxury-bus',
          'capacity' => 59
+      ],
+      [
+         'name' => 'Bus 35 Seat',
+         'slug' => 'bus-35-seat',
+         'capacity' => 35
+      ],
+      [
+         'name' => 'Toyota Fortuner',
+         'slug' => 'toyota-fortuner',
+         'capacity' => 7
+      ],
+      [
+         'name' => 'Elf Long',
+         'slug' => 'elf-long',
+         'capacity' => 18
+      ],
+      [
+         'name' => 'Toyota Alphard',
+         'slug' => 'toyota-alphard',
+         'capacity' => 7
       ]
    ];
 
