@@ -16,7 +16,7 @@ return new class extends Migration
          $table->uuid('uuid');
          $table->string('name');
          $table->string('slug');
-         $table->integer('capacity');
+         $table->string('capacity', 20);
          $table->integer('price');
          $table->timestamps();
       });

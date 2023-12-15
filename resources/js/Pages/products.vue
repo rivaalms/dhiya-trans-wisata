@@ -28,7 +28,7 @@
                <Link :href="`/products/${item.slug}`" class="col-span-1">
                   <div class="card p-0 hover:shadow-lg hover:text-amber-500 hover:cursor-pointer transition-all duration-300">
                      <div class="h-60 sm:h-40 lg:h-60 border-b">
-                        <img :src="item.image.path" alt="" class="object-cover h-full w-full rounded-t-[0.425rem]">
+                        <img :src="item.image?.path" alt="" class="object-cover h-full w-full rounded-t-[0.425rem]">
                      </div>
                      <div class="p-6">
                         <p class="text-center text-lg font-semibold">

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
       $this->call([
          VehicleSeeder::class,
          DestinationSeeder::class,
-         ImageSeeder::class,
+         // ImageSeeder::class,
          PriceSeeder::class,
          UserSeeder::class
       ]);

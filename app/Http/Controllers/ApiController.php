@@ -198,7 +198,7 @@ class ApiController extends Controller
 
    public function getProductDetails($slug) {
       $query = Vehicle::where('slug', $slug)->get();
-      $data = Vehicle::mapVehicles($query)->first();
+      $data = VehicleController::mapVehicles($query)->first();
       return $this->apiResponse($data);
    }
 

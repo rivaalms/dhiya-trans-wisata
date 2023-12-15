@@ -10,40 +10,40 @@ class VehicleSeeder extends Seeder
 {
    private $vehicles = [
       [
-         'name' => 'Hiace Premio Luxury',
+         'name' => 'Big Bus',
+         'slug' => 'big-bus',
+         'capacity' => '47 - 59',
+      ],
+      [
+         'name' => 'Medium Bus',
+         'slug' => 'medium-bus',
+         'capacity' => '27 - 35'
+      ],
+      [
+         'name' => 'HiAce Premio Luxury',
          'slug' => 'hiace-premio-luxury',
-         'capacity' => 9,
+         'capacity' => '9'
+      ],
+      [
+         'name' => 'HiAce Premio Standar',
+         'slug' => 'hiace-premio-standar',
+         'capacity' => '12'
+      ],
+      [
+         'name' => 'HiAce Commuter',
+         'slug' => 'hiace-commuter',
+         'capacity' => '13'
       ],
       [
          'name' => 'Toyota Innova Reborn',
          'slug' => 'toyota-innova-reborn',
-         'capacity' => 7
+         'capacity' => '7'
       ],
       [
-         'name' => 'Luxury Bus',
-         'slug' => 'luxury-bus',
-         'capacity' => 59
+         'name' => 'Avanza/Xenia TSS',
+         'slug' => 'avanza-xenia-tss',
+         'capacity' => '7'
       ],
-      [
-         'name' => 'Bus 35 Seat',
-         'slug' => 'bus-35-seat',
-         'capacity' => 35
-      ],
-      [
-         'name' => 'Toyota Fortuner',
-         'slug' => 'toyota-fortuner',
-         'capacity' => 7
-      ],
-      [
-         'name' => 'Elf Long',
-         'slug' => 'elf-long',
-         'capacity' => 18
-      ],
-      [
-         'name' => 'Toyota Alphard',
-         'slug' => 'toyota-alphard',
-         'capacity' => 7
-      ]
    ];
 
    public function run(): void

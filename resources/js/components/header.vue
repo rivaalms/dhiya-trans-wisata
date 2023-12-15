@@ -1,6 +1,6 @@
 <template>
-<header>
-   <div class="shadow">
+<header class="sticky top-0 bg-white z-[999] shadow shadow-black/5">
+   <div class="">
       <div class="container mx-auto">
          <div class="flex justify-around items-center py-3">
             <div class="flex gap-8 uppercase">

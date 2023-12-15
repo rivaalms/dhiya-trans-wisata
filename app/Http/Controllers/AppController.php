@@ -23,17 +23,19 @@ class AppController extends Controller
 
    public function products()
    {
-      $products = Vehicle::all();
-      foreach ($products as $p) {
-         $p->image = Image::where('vehicle_uuid', $p->uuid)->first();
+      $query = Vehicle::all();
+      foreach ($query as $q) {
+         $q->image = Image::where('vehicle_uuid', $q->uuid)->first();
       }
+      $products = VehicleController::orderVehicles($query);
       return Inertia::render('products', compact('products'));
    }
 
    public function productDetails(String $slug)
    {
       $query = Vehicle::where('slug', $slug)->get();
-      $product = Vehicle::mapVehicles($query)->first();
+      if (!count($query)) return abort('404');
+      $product = VehicleController::mapVehicles($query)->first();
 
       return Inertia::render('vehicle', compact('product'));
    }
